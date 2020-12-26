@@ -35,13 +35,18 @@ function setup() {
 	World.add(world, packageBody);
 	
 
-	//Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
-	 World.add(world, ground);
-	 
-	redzoneB = Bodies.rectangle(400,650,200,10, {isStatic:true});
-	redzoneL = Bodies.rectangle()
-	 World.add(world, redzoneB);
+	//Create a Ground 
+	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} ); 
+	World.add(world, ground); 
+
+	redzoneB = Bodies.rectangle(width/2-20, 640, 150, 20, {isStatic: true});
+	World.add(world,redzoneB);
+
+	redzoneL = Bodies.rectangle(width/2-105,560,20,150,{isStatic:true});
+	World.add(world,redzoneL);
+
+	redzoneR = Bodies.rectangle(width/2+65,560,20,150,{isStatic:true});
+	World.add(world,redzoneR);
 
 	Engine.run(engine);
 }
@@ -54,13 +59,22 @@ function draw() {
   drawSprites();
 
   fill('red');
-  rectMode(CENTER);
-	rect(redzoneB.position.x,redzoneB.position.y,200,10);
+   rectMode(CENTER);
+	 rect(redzoneB.position.x,redzoneB.position.y,150,20);
 
+  fill('red');
+   rectMode(CENTER);
+	 rect(redzoneL.position.x,redzoneL.position.y,20,150);
+
+  fill('red');
+   rectMode(CENTER);
+    rect(redzoneR.position.x,redzoneR.position.y,20,150);
+	
   keyPressed();
 
   Engine.update(engine);
 
+  drawSprites();
 }
 
 function keyPressed() {
